@@ -15,13 +15,13 @@
             android:layout_width="60dp"
             android:layout_height="50dp"
             android:layout_marginStart="64dp"
-            android:layout_marginTop="113dp"
-            android:layout_marginEnd="136dp"
+            android:layout_marginTop="88dp"
+            android:layout_marginEnd="100dp"
             android:adjustViewBounds="true"
             android:scaleType="centerInside"
             android:src="@android:drawable/arrow_up_float"
             app:layout_constraintEnd_toStartOf="@+id/button1"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.194"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="SpeakableTextPresentCheck" />
@@ -83,9 +83,8 @@
         <com.google.android.material.slider.Slider
             android:id="@+id/slider2"
             android:layout_width="189dp"
-            android:layout_height="145dp"
+            android:layout_height="400dp"
             android:layout_marginEnd="1088dp"
-            android:layout_marginBottom="67dp"
             android:paddingLeft="0dp"
             android:rotation="270"
             android:valueFrom="10"
@@ -94,6 +93,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button5"
             app:thumbColor="#2196F3"
             app:trackColorActive="#F44336"
             app:trackColorInactive="@color/white"
@@ -105,7 +105,7 @@
             android:layout_height="50dp"
             android:layout_marginStart="64dp"
             android:layout_marginEnd="1156dp"
-            android:layout_marginBottom="516dp"
+            android:layout_marginBottom="344dp"
             android:src="@android:drawable/arrow_down_float"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -115,15 +115,15 @@
 
         <LinearLayout
             android:id="@+id/linearLayout"
-            android:layout_width="1118dp"
-            android:layout_height="152dp"
+            android:layout_width="984dp"
+            android:layout_height="112dp"
             android:layout_marginStart="36dp"
-            android:layout_marginTop="67dp"
-            android:layout_marginEnd="2dp"
+            android:layout_marginTop="188dp"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/button"
-            app:layout_constraintTop_toBottomOf="@+id/slider2">
+            app:layout_constraintHorizontal_bias="0.811"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button3">
 
                 <ImageButton
                     android:id="@+id/button32"
@@ -153,8 +153,8 @@
 
                 <Button
                     android:id="@+id/button34"
-                    android:layout_width="120dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="213dp"
+                    android:layout_height="112dp"
                     android:layout_marginRight="20dp"
                     android:layout_weight="1"
                     android:text="Max A/C"
@@ -183,9 +183,9 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="1278dp"
-            android:layout_height="140dp"
-            android:layout_marginBottom="274dp"
+            android:layout_width="1244dp"
+            android:layout_height="149dp"
+            android:layout_marginBottom="32dp"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -194,13 +194,13 @@
 
                 <Button
                     android:id="@+id/button23"
-                    android:layout_width="80dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="112dp"
+                    android:layout_height="93dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
                     android:layout_weight="1"
                     android:text="OFF"
-                    android:textSize="30dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginLeft="20dp"/>
+                    android:textSize="30dp" />
 
                 <Button
                     android:id="@+id/button24"
@@ -208,7 +208,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="1"
-                    android:textSize="40dp"/>
+                    android:textSize="40dp" />
 
                 <Button
                     android:id="@+id/button25"
@@ -216,7 +216,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="2"
-                    android:textSize="40dp"/>
+                    android:textSize="40dp" />
 
                 <Button
                     android:id="@+id/button26"
@@ -224,7 +224,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="3"
-                    android:textSize="40dp"/>
+                    android:textSize="40dp" />
 
                 <Button
                     android:id="@+id/button27"
@@ -232,7 +232,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="4"
-                    android:textSize="40dp"/>
+                    android:textSize="40dp" />
 
                 <Button
                     android:id="@+id/button28"
@@ -240,7 +240,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="5"
-                    android:textSize="40dp"/>
+                    android:textSize="40dp" />
 
                 <Button
                     android:id="@+id/button29"
@@ -248,7 +248,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="6"
-                    android:textSize="40dp"/>
+                    android:textSize="40dp" />
 
                 <Button
                     android:id="@+id/button30"
@@ -256,17 +256,17 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="7"
-                    android:textSize="40dp"/>
+                    android:textSize="40dp" />
 
                 <Button
                     android:id="@+id/button31"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="Auto"
+                    android:layout_height="86dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:textSize="30dp"/>
+                    android:layout_weight="1"
+                    android:text="Auto"
+                    android:textSize="30dp" />
         </LinearLayout>
 
 

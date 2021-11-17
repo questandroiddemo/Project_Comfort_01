@@ -6,7 +6,7 @@
         <entry key="app/src/main/res/drawable/seekbar_background.xml" value="0.11" />
         <entry key="app/src/main/res/drawable/thumb.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/fragment_front.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_front.xml" value="0.12" />
         <entry key="app/src/main/res/layout/fragment_seat.xml" value="0.13" />
       </map>
     </option>
