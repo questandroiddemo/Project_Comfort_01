@@ -80,7 +80,7 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="SpeakableTextPresentCheck" />
 
-        <com.google.android.material.slider.Slider
+        <SeekBar
             android:id="@+id/slider2"
             android:layout_width="189dp"
             android:layout_height="400dp"
@@ -204,7 +204,7 @@
                     android:textSize="30dp" />
 
                 <Button
-                    android:id="@+id/button24"
+                    android:id="@+id/btn1"
                     android:layout_width="120dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -212,7 +212,7 @@
                     android:textSize="40dp" />
 
                 <Button
-                    android:id="@+id/button25"
+                    android:id="@+id/btn2"
                     android:layout_width="120dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -220,7 +220,7 @@
                     android:textSize="40dp" />
 
                 <Button
-                    android:id="@+id/button26"
+                    android:id="@+id/btn3"
                     android:layout_width="120dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -228,7 +228,7 @@
                     android:textSize="40dp" />
 
                 <Button
-                    android:id="@+id/button27"
+                    android:id="@+id/btn4"
                     android:layout_width="120dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -236,7 +236,7 @@
                     android:textSize="40dp" />
 
                 <Button
-                    android:id="@+id/button28"
+                    android:id="@+id/btn5"
                     android:layout_width="120dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -244,7 +244,7 @@
                     android:textSize="40dp" />
 
                 <Button
-                    android:id="@+id/button29"
+                    android:id="@+id/btn6"
                     android:layout_width="120dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -252,7 +252,7 @@
                     android:textSize="40dp" />
 
                 <Button
-                    android:id="@+id/button30"
+                    android:id="@+id/btn7"
                     android:layout_width="120dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
