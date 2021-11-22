@@ -6,12 +6,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import androidx.fragment.app.Fragment;
 
 public class fragment1 extends Fragment implements  View.OnClickListener{
 
     Button b1, b2 ,b3, b4, b5 ,b6, b7;
+
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -28,6 +32,7 @@ public class fragment1 extends Fragment implements  View.OnClickListener{
         b6= v.findViewById(R.id.btn6);
         b7= v.findViewById(R.id.btn7);
 
+
         b1.setOnClickListener(this);
         b2.setOnClickListener(this);
         b3.setOnClickListener(this);
@@ -35,6 +40,7 @@ public class fragment1 extends Fragment implements  View.OnClickListener{
         b5.setOnClickListener(this);
         b6.setOnClickListener(this);
         b7.setOnClickListener(this);
+
 
 
         return v;

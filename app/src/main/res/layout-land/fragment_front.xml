@@ -20,66 +20,56 @@
             android:adjustViewBounds="true"
             android:scaleType="centerInside"
             android:src="@android:drawable/arrow_up_float"
-            app:layout_constraintEnd_toStartOf="@+id/button1"
             app:layout_constraintHorizontal_bias="0.194"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="SpeakableTextPresentCheck" />
 
-        <ImageButton
-            android:id="@+id/button1"
-            android:layout_width="220dp"
-            android:layout_height="140dp"
-            android:layout_marginStart="260dp"
-            android:layout_marginTop="100dp"
-            android:adjustViewBounds="true"
-            android:scaleType="centerInside"
-            android:src="@drawable/ac1"
-            app:layout_constraintEnd_toStartOf="@+id/button4"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="SpeakableTextPresentCheck" />
 
-        <ImageButton
-            android:id="@+id/button2"
-            android:layout_width="220dp"
-            android:layout_height="140dp"
-            android:layout_marginTop="100dp"
-            android:layout_marginEnd="140dp"
-            android:adjustViewBounds="true"
-            android:scaleType="centerInside"
-            android:src="@drawable/ac4"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/button3"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="SpeakableTextPresentCheck" />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="50dp"
+    android:layout_marginLeft="185dp">
 
-        <ImageButton
-            android:id="@+id/button3"
-            android:layout_width="220dp"
-            android:layout_height="140dp"
-            android:layout_marginTop="100dp"
-            android:adjustViewBounds="true"
-            android:scaleType="centerInside"
-            android:src="@drawable/ac3"
-            app:layout_constraintEnd_toStartOf="@+id/button2"
-            app:layout_constraintStart_toEndOf="@+id/button4"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="SpeakableTextPresentCheck" />
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="90dp"
+            android:orientation="horizontal">
 
-        <ImageButton
-            android:id="@+id/button4"
-            android:layout_width="220dp"
-            android:layout_height="140dp"
-            android:layout_marginTop="100dp"
-            android:adjustViewBounds="true"
-            android:scaleType="centerInside"
-            android:src="@drawable/ac2"
-            app:layout_constraintEnd_toStartOf="@+id/button3"
-            app:layout_constraintStart_toEndOf="@+id/button1"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="SpeakableTextPresentCheck" />
+                <RadioButton
+                    style="@style/timeLineRadioButton"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:adjustViewBounds="true"
+                    android:background="@color/purple_500"
+                    android:button="@drawable/ac1" />
 
+                <RadioButton
+                    style="@style/timeLineRadioButton"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:background="@color/purple_500"
+                    android:button="@drawable/ac2" />
+
+                <RadioButton
+                    style="@style/timeLineRadioButton"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:background="@color/purple_500"
+                    android:button="@drawable/ac3" />
+
+                <RadioButton
+                    style="@style/timeLineRadioButton"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:background="@color/purple_500"
+                    android:button="@drawable/ac4" />
+
+        </RadioGroup>
+</LinearLayout>
         <SeekBar
             android:id="@+id/slider2"
             android:layout_width="189dp"
@@ -119,28 +109,28 @@
             android:layout_width="984dp"
             android:layout_height="112dp"
             android:layout_marginStart="36dp"
-            android:layout_marginTop="188dp"
+            android:layout_marginBottom="280dp"
             android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.811"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button3">
+            app:layout_constraintHorizontal_bias="0.738"
+            app:layout_constraintStart_toStartOf="parent">
 
                 <ToggleButton
-                    android:id="@+id/toggleButton"
+                    android:id="@+id/tb1"
                     android:layout_width="150dp"
                     android:layout_height="110dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginBottom="100dp"
+                    android:adjustViewBounds="true"
                     android:background="@drawable/selector"
                     android:text="ToggleButton"
                     android:textOff=""
                     android:textOn=""
-                    android:adjustViewBounds="true"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/toggleButton2"
                     app:layout_constraintHorizontal_bias="0.45"
-                    app:layout_constraintStart_toStartOf="parent"/>
+                    app:layout_constraintStart_toStartOf="parent" />
 
                 <ToggleButton
                     android:id="@+id/toggleButton2"
@@ -149,10 +139,10 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="30dp"
                     android:adjustViewBounds="true"
+                    android:background="@drawable/selector1"
                     android:text="ToggleButton"
                     android:textOff=""
                     android:textOn=""
-                    android:background="@drawable/selector1"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
 
@@ -177,13 +167,13 @@
                     android:id="@+id/toggleButton3"
                     android:layout_width="150dp"
                     android:layout_height="130dp"
-                    android:layout_marginStart="0dp"
+                    android:layout_marginStart="25dp"
                     android:layout_marginBottom="0dp"
+                    android:background="@drawable/selector2"
+                    android:elevation="20dp"
                     android:text="ToggleButton"
                     android:textOff=""
                     android:textOn=""
-                    android:elevation="20dp"
-                    android:background="@drawable/selector2"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.656"
@@ -191,14 +181,17 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/linearLayout2"
             android:layout_width="1244dp"
             android:layout_height="149dp"
             android:layout_marginBottom="32dp"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.555"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            app:layout_constraintVertical_bias="0.927">
 
                 <Button
                     android:id="@+id/button23"
