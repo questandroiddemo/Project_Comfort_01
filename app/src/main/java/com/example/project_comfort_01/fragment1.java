@@ -5,13 +5,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.SeekBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
-public class fragment1 extends Fragment implements  View.OnClickListener{
+public class fragment1 extends Fragment implements View.OnClickListener, SeekBar.OnSeekBarChangeListener {
 
     Button b1, b2 ,b3, b4, b5 ,b6, b7;
+    SeekBar seekBar;
+    TextView textView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -27,6 +31,8 @@ public class fragment1 extends Fragment implements  View.OnClickListener{
         b5= v.findViewById(R.id.btn5);
         b6= v.findViewById(R.id.btn6);
         b7= v.findViewById(R.id.btn7);
+        seekBar=v.findViewById(R.id.seekbar);
+        textView=v.findViewById(R.id.textView);
 
         b1.setOnClickListener(this);
         b2.setOnClickListener(this);
@@ -35,6 +41,7 @@ public class fragment1 extends Fragment implements  View.OnClickListener{
         b5.setOnClickListener(this);
         b6.setOnClickListener(this);
         b7.setOnClickListener(this);
+        seekBar.setOnSeekBarChangeListener(this);
 
 
         return v;
@@ -114,4 +121,22 @@ public class fragment1 extends Fragment implements  View.OnClickListener{
         }
     }
 
+    @Override
+    public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
+    int i=10;
+
+        i=progress;
+        textView.setText(""+i);
+        textView.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void onStartTrackingTouch(SeekBar seekBar) {
+
+    }
+
+    @Override
+    public void onStopTrackingTouch(SeekBar seekBar) {
+
+    }
 }
