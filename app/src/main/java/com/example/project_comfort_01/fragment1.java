@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,6 +18,7 @@ public class fragment1 extends Fragment implements View.OnClickListener, SeekBar
     Button b1, b2 ,b3, b4, b5 ,b6, b7;
     SeekBar seekBar;
     TextView textView;
+    ImageButton btup, btdown;
 
 
 
@@ -35,6 +37,10 @@ public class fragment1 extends Fragment implements View.OnClickListener, SeekBar
         b5= v.findViewById(R.id.btn5);
         b6= v.findViewById(R.id.btn6);
         b7= v.findViewById(R.id.btn7);
+
+        btup=v.findViewById(R.id.button5);
+        btdown=v.findViewById(R.id.button);
+
         seekBar=v.findViewById(R.id.seekbar);
         textView=v.findViewById(R.id.textView);
 
@@ -47,6 +53,24 @@ public class fragment1 extends Fragment implements View.OnClickListener, SeekBar
         b6.setOnClickListener(this);
         b7.setOnClickListener(this);
         seekBar.setOnSeekBarChangeListener(this);
+        btup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int c = seekBar.getProgress();
+                seekBar.setProgress(c + 1);
+                textView.setVisibility(View.VISIBLE);
+
+            }
+        });
+        btdown.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int c = seekBar.getProgress();
+                seekBar.setProgress(c - 1);
+                textView.setVisibility(View.VISIBLE);
+
+            }
+        });
 
 
 
@@ -124,8 +148,11 @@ public class fragment1 extends Fragment implements View.OnClickListener, SeekBar
                 b6.setBackgroundColor(getResources().getColor(android.R.color.holo_orange_light));
                 b7.setBackgroundColor(getResources().getColor(android.R.color.holo_orange_light));
                 break;
+
         }
     }
+
+
 
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
@@ -145,4 +172,5 @@ public class fragment1 extends Fragment implements View.OnClickListener, SeekBar
     public void onStopTrackingTouch(SeekBar seekBar) {
 
     }
+
 }

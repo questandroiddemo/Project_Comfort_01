@@ -6,8 +6,6 @@
         <entry key="app/src/main/res/drawable-v24/selector.xml" value="0.14666666666666667" />
         <entry key="app/src/main/res/drawable-v24/selector1.xml" value="0.14555555555555555" />
         <entry key="app/src/main/res/drawable-v24/selector2.xml" value="0.15703125" />
-        <entry key="app/src/main/res/drawable/button_radio.xml" value="0.15703125" />
-        <entry key="app/src/main/res/drawable/radio_normal.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/seekbar_background.xml" value="0.11" />
         <entry key="app/src/main/res/drawable/thumb.xml" value="0.1" />
         <entry key="app/src/main/res/layout-land/fragment_front.xml" value="0.10833333333333334" />
