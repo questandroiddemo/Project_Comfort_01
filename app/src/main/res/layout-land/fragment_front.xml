@@ -30,7 +30,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="50dp"
-    android:layout_marginLeft="185dp">
+    android:layout_marginLeft="185dp"
+    tools:ignore="MissingConstraints">
 
         <RadioGroup
             android:layout_width="match_parent"
