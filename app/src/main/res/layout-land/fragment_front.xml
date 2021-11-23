@@ -72,14 +72,15 @@
         </RadioGroup>
 </LinearLayout>
         <SeekBar
-            android:id="@+id/slider2"
-            android:layout_width="189dp"
-            android:layout_height="400dp"
+            android:id="@+id/seekbar"
+            android:layout_width="140dp"
+            android:layout_height="380dp"
             android:layout_marginEnd="1088dp"
             android:paddingLeft="0dp"
             android:rotation="270"
-            android:valueFrom="10"
-            android:valueTo="40"
+           android:max="40"
+            android:min="10"
+            android:progress="1"
             app:layout_constraintBottom_toTopOf="@+id/button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -270,6 +271,22 @@
                     android:text="Auto"
                     android:textSize="30dp" />
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginEnd="1043dp"
+            android:textSize="25dp"
+            android:layout_marginBottom="400dp"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.615"
+            app:layout_constraintStart_toEndOf="@+id/seekbar"
+            app:layout_constraintTop_toBottomOf="@+id/seekbar"
+            app:layout_constraintVertical_bias="0.601" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
