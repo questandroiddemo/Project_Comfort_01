@@ -10,7 +10,7 @@
     android:scrollbarStyle="outsideInset"
     tools:context=".fragment1">
 
-        <ImageButton
+        <ToggleButton
             android:id="@+id/button5"
             android:layout_width="60dp"
             android:layout_height="50dp"
@@ -26,7 +26,7 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="SpeakableTextPresentCheck" />
 
-        <ImageButton
+        <ToggleButton
             android:id="@+id/button1"
             android:layout_width="220dp"
             android:layout_height="140dp"
