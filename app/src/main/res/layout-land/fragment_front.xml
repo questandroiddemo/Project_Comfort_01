@@ -34,6 +34,7 @@
     tools:ignore="MissingConstraints">
 
         <RadioGroup
+            android:id="@+id/rgroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
@@ -41,6 +42,7 @@
             android:orientation="horizontal">
 
                 <RadioButton
+                    android:id="@+id/af1"
                     style="@style/timeLineRadioButton"
                     android:layout_width="200dp"
                     android:layout_height="200dp"
@@ -49,6 +51,7 @@
                     android:button="@drawable/ac1" />
 
                 <RadioButton
+                    android:id="@+id/af2"
                     style="@style/timeLineRadioButton"
                     android:layout_width="200dp"
                     android:layout_height="200dp"
@@ -56,6 +59,7 @@
                     android:button="@drawable/ac2" />
 
                 <RadioButton
+                    android:id="@+id/af3"
                     style="@style/timeLineRadioButton"
                     android:layout_width="200dp"
                     android:layout_height="200dp"
@@ -63,6 +67,7 @@
                     android:button="@drawable/ac3" />
 
                 <RadioButton
+                    android:id="@+id/af4"
                     style="@style/timeLineRadioButton"
                     android:layout_width="200dp"
                     android:layout_height="200dp"
@@ -119,7 +124,7 @@
             app:layout_constraintStart_toStartOf="parent">
 
                 <ToggleButton
-                    android:id="@+id/tb1"
+                    android:id="@+id/tgfd"
                     android:layout_width="150dp"
                     android:layout_height="110dp"
                     android:layout_marginStart="10dp"
@@ -135,7 +140,7 @@
                     app:layout_constraintStart_toStartOf="parent" />
 
                 <ToggleButton
-                    android:id="@+id/toggleButton2"
+                    android:id="@+id/tgrd"
                     android:layout_width="140dp"
                     android:layout_height="100dp"
                     android:layout_marginLeft="20dp"
@@ -148,25 +153,31 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
 
-                <Button
-                    android:id="@+id/button34"
+                <ToggleButton
+                    android:id="@+id/maxac"
                     android:layout_width="213dp"
                     android:layout_height="112dp"
                     android:layout_marginRight="20dp"
                     android:layout_weight="1"
+                    android:background="@color/purple_500"
                     android:text="Max A/C"
-                    android:textSize="30dp" />
-
-                <Button
-                    android:id="@+id/button35"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="A/C"
+                    android:textOff="Max Ac"
+                    android:textOn="Max Ac"
                     android:textSize="30dp" />
 
                 <ToggleButton
-                    android:id="@+id/toggleButton3"
+                    android:id="@+id/ac"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/purple_500"
+                    android:text="A/C"
+                    android:textOff="Ac"
+                    android:textOn="Ac"
+                    android:textSize="30dp" />
+
+                <ToggleButton
+                    android:id="@+id/tgcirc"
                     android:layout_width="150dp"
                     android:layout_height="130dp"
                     android:layout_marginStart="25dp"
@@ -195,14 +206,15 @@
             app:layout_constraintTop_toBottomOf="@+id/linearLayout"
             app:layout_constraintVertical_bias="0.927">
 
-                <Button
-                    android:id="@+id/button23"
+                <ToggleButton
+                    android:id="@+id/power"
                     android:layout_width="112dp"
                     android:layout_height="93dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_weight="1"
                     android:text="OFF"
+                    android:textOn="ON"
                     android:textSize="30dp" />
 
                 <Button
@@ -261,14 +273,16 @@
                     android:text="7"
                     android:textSize="40dp" />
 
-                <Button
-                    android:id="@+id/button31"
+                <ToggleButton
+                    android:id="@+id/tgauto"
                     android:layout_width="wrap_content"
                     android:layout_height="86dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_weight="1"
                     android:text="Auto"
+                    android:textOff="Auto"
+                    android:textOn="Auto"
                     android:textSize="30dp" />
         </LinearLayout>
 
@@ -287,6 +301,18 @@
             app:layout_constraintStart_toEndOf="@+id/seekbar"
             app:layout_constraintTop_toBottomOf="@+id/seekbar"
             app:layout_constraintVertical_bias="0.601" />
+
+        <TextView
+            android:id="@+id/txtpower"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="387dp"
+            android:layout_marginEnd="488dp"
+            android:layout_marginBottom="494dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.32" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

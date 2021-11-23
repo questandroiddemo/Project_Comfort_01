@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,6 +21,10 @@ public class fragment1 extends Fragment implements View.OnClickListener, SeekBar
     SeekBar seekBar;
     TextView textView;
     ImageButton btup, btdown;
+    ToggleButton tpower,tmax,tac,tgfd,tgrd,tgcirc,tgauto;
+    TextView txtpower;
+    RadioGroup radioGroup;
+    RadioButton af1,af2,af3,af4;
 
 
 
@@ -43,6 +49,24 @@ public class fragment1 extends Fragment implements View.OnClickListener, SeekBar
 
         seekBar=v.findViewById(R.id.seekbar);
         textView=v.findViewById(R.id.textView);
+
+        tpower=v.findViewById(R.id.power);
+
+        tmax=v.findViewById(R.id.maxac);
+        tac=v.findViewById(R.id.ac);
+        txtpower=v.findViewById(R.id.txtpower);
+
+
+        radioGroup=v.findViewById(R.id.rgroup);
+        af1=v.findViewById(R.id.af1);
+        af2=v.findViewById(R.id.af2);
+        af3=v.findViewById(R.id.af3);
+        af4=v.findViewById(R.id.af4);
+
+        tgfd=v.findViewById(R.id.tgfd);
+        tgrd=v.findViewById(R.id.tgrd);
+        tgcirc=v.findViewById(R.id.tgcirc);
+        tgauto=v.findViewById(R.id.tgauto);
 
 
         b1.setOnClickListener(this);
@@ -72,9 +96,207 @@ public class fragment1 extends Fragment implements View.OnClickListener, SeekBar
             }
         });
 
+        tpower.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Boolean Tstatus=  tpower.isChecked();
+                //  getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+                if(Tstatus==true){
+                    seekBar.setEnabled(false);
+                    btup.setEnabled(false);
+                    btdown.setEnabled(false);
+                    tmax.setEnabled(false);
+                    tac.setEnabled(false);
+                    b1.setEnabled(false);
+                    b2.setEnabled(false);
+                    b3.setEnabled(false);
+                    b4.setEnabled(false);
+                    b5.setEnabled(false);
+                    b6.setEnabled(false);
+                    b7.setEnabled(false);
+                    af1.setEnabled(false);
+                    af2.setEnabled(false);
+                    af3.setEnabled(false);
+                    af4.setEnabled(false);
+                    tgfd.setEnabled(false);
+                    tgrd.setEnabled(false);
+                    tgcirc.setEnabled(false);
 
 
-        return v;
+                    txtpower.setText("Climate is Off");
+                    txtpower.setVisibility(View.VISIBLE);
+                    textView.setVisibility(View.INVISIBLE);
+
+
+
+                }
+                else{
+                    seekBar.setEnabled(true);
+                    btup.setEnabled(true);
+                    btdown.setEnabled(true);
+                    tmax.setEnabled(true);
+                    tac.setEnabled(true);
+                    b1.setEnabled(true);
+                    b2.setEnabled(true);
+                    b3.setEnabled(true);
+                    b4.setEnabled(true);
+                    b5.setEnabled(true);
+                    b6.setEnabled(true);
+                    b7.setEnabled(true);
+                    af1.setEnabled(true);
+                    af2.setEnabled(true);
+                    af3.setEnabled(true);
+                    af4.setEnabled(true);
+                    tgfd.setEnabled(true);
+                    tgrd.setEnabled(true);
+                    tgcirc.setEnabled(true);
+                    txtpower.setVisibility(View.INVISIBLE);
+                }
+
+            }
+
+        });
+
+
+
+        tmax.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick (View v) {
+                boolean maxacStatus = tmax.isChecked();
+
+                if (maxacStatus == true) {
+
+                    int c = seekBar.getProgress();
+                    seekBar.setProgress(10);
+                    txtpower.setText("" + c);
+
+
+                    switch (v.getId()) {
+                        case R.id.maxac:
+                            maxAccolor();
+                            tmax.setBackgroundColor(getResources().getColor(android.R.color.holo_orange_light));
+                            tac.setBackgroundColor(getResources().getColor(android.R.color.holo_orange_light));
+                            tac.setSelected(true);
+                            selectfanMax();
+                            break;
+                    }
+
+                }
+                else
+                   maxAccolor();
+
+            }
+
+
+
+        });
+        tgfd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                boolean tgfdstatus=tgfd.isChecked();
+                if(tgfdstatus==true) {
+                    af4.setChecked(true);
+                    selectfanMax();
+                    int c = seekBar.getProgress();
+                    seekBar.setProgress(40);
+                    textView.setText("" + c);
+
+                }else{
+                    radioGroup.clearCheck();
+                    defrostcolor();
+
+
+                }
+
+            }
+        });
+
+        tgrd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                boolean rearStatus = tgrd.isChecked();
+
+                if (rearStatus == true) {
+
+
+                    tac.setBackgroundColor(getResources().getColor(android.R.color.holo_orange_light));
+                    tac.setSelected(true);
+
+                }else{
+                    tac.setBackgroundColor(getResources().getColor(R.color.purple_500));
+                    tac.setSelected(false);
+
+                }
+
+            }
+       });
+        tgauto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                boolean autoStatus = tgauto.isChecked();
+                if (autoStatus == true) {
+
+                    int c = seekBar.getProgress();
+                    seekBar.setProgress(20);
+                    txtpower.setText("" + c);
+                    b1.setBackgroundColor(getResources().getColor(android.R.color.holo_orange_light));
+                    b2.setBackgroundColor(getResources().getColor(android.R.color.holo_orange_light));
+                    b3.setBackgroundColor(getResources().getColor(android.R.color.holo_orange_light));
+                    b4.setBackgroundColor(getResources().getColor(android.R.color.holo_orange_light));
+                    radioGroup.clearCheck();
+
+
+                }
+                else{
+                    b1.setBackgroundColor(getResources().getColor(R.color.design_default_color_primary));
+                    b2.setBackgroundColor(getResources().getColor(R.color.design_default_color_primary));
+                    b3.setBackgroundColor(getResources().getColor(R.color.design_default_color_primary));
+                    b4.setBackgroundColor(getResources().getColor(R.color.design_default_color_primary));
+                    b5.setBackgroundColor(getResources().getColor(R.color.design_default_color_primary));
+                    b6.setBackgroundColor(getResources().getColor(R.color.design_default_color_primary));
+                    b7.setBackgroundColor(getResources().getColor(R.color.design_default_color_primary));
+
+                }
+
+
+            }
+
+
+        });
+
+
+
+
+
+
+                return v;
+    }
+    public void defrostcolor(){
+        b1.setBackgroundColor(getResources().getColor(R.color.design_default_color_primary));
+        b2.setBackgroundColor(getResources().getColor(R.color.design_default_color_primary));
+        b3.setBackgroundColor(getResources().getColor(R.color.design_default_color_primary));
+        b4.setBackgroundColor(getResources().getColor(R.color.design_default_color_primary));
+        b5.setBackgroundColor(getResources().getColor(R.color.design_default_color_primary));
+        b6.setBackgroundColor(getResources().getColor(R.color.design_default_color_primary));
+        b7.setBackgroundColor(getResources().getColor(R.color.design_default_color_primary));
+
+    }
+    public void maxAccolor(){
+               tmax.setBackgroundColor(getResources().getColor(R.color.purple_500));
+               tac.setBackgroundColor(getResources().getColor(R.color.purple_500));
+                defrostcolor();
+
+    }
+    public void selectfanMax() {
+        b1.setBackgroundColor(getResources().getColor(android.R.color.holo_orange_light));
+        b2.setBackgroundColor(getResources().getColor(android.R.color.holo_orange_light));
+        b3.setBackgroundColor(getResources().getColor(android.R.color.holo_orange_light));
+        b4.setBackgroundColor(getResources().getColor(android.R.color.holo_orange_light));
+        b5.setBackgroundColor(getResources().getColor(android.R.color.holo_orange_light));
+        b6.setBackgroundColor(getResources().getColor(android.R.color.holo_orange_light));
+        b7.setBackgroundColor(getResources().getColor(android.R.color.holo_orange_light));
     }
 
     public void defaultColour()
