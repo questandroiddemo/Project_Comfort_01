@@ -5,10 +5,8 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#6A5A5A"
-    android:scrollbarSize="20dp"
-    android:scrollbarStyle="outsideInset"
-    tools:context=".fragment1">
+
+    android:layout_gravity="center">
 
         <ImageButton
             android:id="@+id/button5"

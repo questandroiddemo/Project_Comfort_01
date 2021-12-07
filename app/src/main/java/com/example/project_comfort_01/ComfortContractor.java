@@ -1,9 +1,12 @@
 package com.example.project_comfort_01;
 
+import android.os.RemoteException;
+
 public class ComfortContractor {
     interface View{
         //For temperature progress bar up and down button view methods
     void TempUpValue();
+    //void connect(boolean av);
     void TempDownValue();
     //For Power On Off view methods
     void PowerOff();
@@ -42,10 +45,18 @@ public class ComfortContractor {
     void MaxACclick(boolean value);
     void AutoClick(boolean value);
     void speed1click(int value);
-    void acclick(boolean value);
+    void acclick(boolean value) throws RemoteException;
+
     void defrostclick(boolean value);
     void rearclick(boolean value);
+    void  checkcnnctn(boolean value);
+
 
 
     }
+    interface Model{
+     void acvalue(boolean value) throws RemoteException;
+
+    }
+
 }
