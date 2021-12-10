@@ -3,6 +3,9 @@ package com.example.project_comfort_01;
 import android.os.RemoteException;
 import android.util.Log;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import ServicePackage.ComfortInterface;
 
 
@@ -30,8 +33,9 @@ public class ComfortPresenter implements ComfortContractor.Presenter {
 
 
     @Override
-    public void TempUP(int value) {
+    public void TempUP(int value) throws RemoteException {
         int upvalue = value;
+        model.TempValue(upvalue);
         view.TempUpValue();
         // iComfort.TempUpData(upvalue);
 
@@ -39,13 +43,19 @@ public class ComfortPresenter implements ComfortContractor.Presenter {
     }
 
     @Override
-    public void TempDown(int value) {
+    public void TempDown(int value) throws RemoteException {
+        int downvalue=value;
+        model.TempValue(downvalue);
         view.TempDownValue();
     }
 
     @Override
-    public void PowerClick(boolean value) {
-        if (value == true) {
+    public void PowerClick(boolean value) throws RemoteException {
+
+      boolean powercheck= model.powerValue(value);
+        Log.i("POWER Prsenter"," "+value);
+        Log.i("POWER Prsenter Return"," "+powercheck);
+        if (powercheck == true) {
             view.PowerOn();
         } else {
             view.PowerOff();
@@ -53,30 +63,53 @@ public class ComfortPresenter implements ComfortContractor.Presenter {
     }
 
     @Override
-    public void MaxACclick(boolean value) {
-        if (value == true) {
+    public void MaxACclick(boolean value) throws RemoteException {
+
+
+       boolean maxac= model.maxAcValue(value);
+
+       if (maxac == true) {
             view.maxAccolor();
             view.MaxChange();
         } else {
-            view.maxAccolor();
+           List<String> maxlist=new ArrayList<String>();
+           maxlist=model.getMaxList();
+           int temp=Integer.parseInt(maxlist.get(0));
+           int fan=Integer.parseInt(maxlist.get(1));
+           Log.i("temp"," "+temp);
+           Log.i("fan"," "+fan);
+            view.maxOff(temp,fan);
+         view.SpeedSet(fan);
+           view.maxAccolor();
         }
     }
 
     @Override
-    public void AutoClick(boolean value) {
-        if (value == true) {
+    public void AutoClick(boolean value) throws RemoteException {
+        boolean auto=model.AutoValue(value);
+        if (auto == true) {
             view.AutoUpdate();
+            view.SpeedSet(4);
 
         } else {
-            view.AutoOff();
+            List<String> autolist=new ArrayList<String>();
+            autolist=model.getAutoList();
+            int temp=Integer.parseInt(autolist.get(0));
+            int fan=Integer.parseInt(autolist.get(1));
+            Log.i("temp"," "+temp);
+            Log.i("fan"," "+fan);
+            view.maxOff(temp,fan);
+            view.SpeedSet(fan);
+           // view.AutoOff();
         }
     }
 
     @Override
-    public void speed1click(int value) {
+    public void speed1click(int value) throws RemoteException {
         int speed = value;
         //(speed == 1 || speed == 2 || speed == 3 || speed == 4 | speed == 5 || speed == 6 || speed == 7) {
         view.SpeedSet(speed);
+        model.SpeedValue(speed);
 //            if((speed == 7 )&& (maxacs
 //            tatus=true)){
 //                view.maxacoff();
@@ -90,37 +123,45 @@ public class ComfortPresenter implements ComfortContractor.Presenter {
     public void acclick(boolean value) throws RemoteException {
 
         Log.i("PRSENTER"," "+value);
-        model.acvalue(value);
-       // mainFragment.acvalue(value);
+        boolean pacvalue=model.acvalue(value);
+        Log.i("return PRSENTER"," "+pacvalue);
+        if(pacvalue==true)
+        {
+            view.acon();
+        }else
+        {
+            view.acof();
+        }
 
-//       try {
-//           boolean bc=comfortInterface.AcPressed(value);
-//            view.connect(bc);
-//       } catch (RemoteException e) {
-//           e.printStackTrace();
-//       }
-       // boolean c=value;
-
-//        if (value == true) {
-//
-//            view.acof();
-//        } else {
-//            view.acon();
-//        }
     }
 
     @Override
-    public void defrostclick(boolean value) {
-        if (value == true) {
+    public void tempprogress(int value) throws RemoteException {
+        int progress=value;
+        model.TempValue(progress);
+    }
+
+    @Override
+    public void defrostclick(boolean value) throws RemoteException {
+        boolean defrost=model.DefrostValue(value);
+
+        if (defrost == true) {
             view.defroston();
         } else {
-            view.defrostof();
+            List<String> defrostlist=new ArrayList<String>();
+            defrostlist=model.getDefrostList();
+            int temp=Integer.parseInt(defrostlist.get(0));
+            int fan=Integer.parseInt(defrostlist.get(1));
+            view.maxOff(temp,fan);
+            view.SpeedSet(fan);
+
         }
     }
 
     @Override
-    public void rearclick(boolean value) {
-        if (value == true) {
+    public void rearclick(boolean value) throws RemoteException {
+        boolean rear=model.RearfrostValue(value);
+        if (rear == true) {
             view.rearon();
         } else {
             view.rearoff();

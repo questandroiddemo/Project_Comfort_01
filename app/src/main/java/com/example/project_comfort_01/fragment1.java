@@ -27,7 +27,7 @@ import androidx.fragment.app.Fragment;
 
 import java.util.List;
 
-import ServicePackage.ComfortInterface;
+
 
 public class fragment1 extends Fragment implements  ComfortContractor.View{
 
@@ -40,12 +40,11 @@ public class fragment1 extends Fragment implements  ComfortContractor.View{
     RadioGroup radioGroup;
     RadioButton af1,af2,af3,af4;
     ComfortContractor.Presenter presenter;
-    ComfortContractor.Model model;
-    ServiceConnection serviceConnection;
 
-    ComfortInterface comfortInterface;
+
+
     View v;
-   // Fragment fragment;
+
 
 
 
@@ -57,10 +56,8 @@ public class fragment1 extends Fragment implements  ComfortContractor.View{
 
         View view = inflater.inflate(R.layout.fragment_front, container, false);
 
-       //
-        //mainFragment=(MainFragment)
-        presenter = new ComfortPresenter(this);
 
+        presenter = new ComfortPresenter(this);
 
         b1 = view.findViewById(R.id.btn1);
         b2 = view.findViewById(R.id.btn2);
@@ -94,7 +91,8 @@ public class fragment1 extends Fragment implements  ComfortContractor.View{
         tgcirc = view.findViewById(R.id.tgcirc);
         tgauto = view.findViewById(R.id.tgauto);
         Toast.makeText(getActivity(),"value"+tac.isChecked(),Toast.LENGTH_LONG).show();
-       // v.bindToAIDLService();
+
+        //Press Temperature Up button
         btup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -102,10 +100,16 @@ public class fragment1 extends Fragment implements  ComfortContractor.View{
                    int c =seekBar.getProgress();
                     seekBar.setProgress(c + 1);
                     int d=seekBar.getProgress();
-                        presenter.TempUP(d);
+                try {
+                    presenter.TempUP(d);
+                } catch (RemoteException e) {
+                    e.printStackTrace();
+                }
+
 
             }
         });
+        //Press Temperature Down Button
        btdown.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
@@ -113,94 +117,171 @@ public class fragment1 extends Fragment implements  ComfortContractor.View{
                int c =seekBar.getProgress();
                seekBar.setProgress(c - 1);
                int d=seekBar.getProgress();
-               presenter.TempDown(d);
+               try {
+                   presenter.TempDown(d);
+               } catch (RemoteException e) {
+                   e.printStackTrace();
+               }
            }
        });
+
+       //Press Power Button
        tpower.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
                Boolean Tstatus=  tpower.isChecked();
-               presenter.PowerClick(Tstatus);
+               try {
+                   presenter.PowerClick(Tstatus);
+                   Toast.makeText(getActivity(),"Power"+Tstatus,Toast.LENGTH_LONG).show();
+               } catch (RemoteException e) {
+                   e.printStackTrace();
+               }
            }
        });
-       tmax.setOnClickListener(new View.OnClickListener() {
+
+
+        //Press MAX AC Button
+
+        tmax.setOnClickListener(new View.OnClickListener() {
+
            @Override
            public void onClick(View view) {
+
                boolean maxacStatus = tmax.isChecked();
-               presenter.MaxACclick(maxacStatus);
+
+
+               try {
+                   presenter.MaxACclick(maxacStatus);
+               } catch (RemoteException e) {
+                   e.printStackTrace();
+               }
            }
+
+
        });
+
+        //Press Auto Button
        tgauto.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
                boolean autoStatus = tgauto.isChecked();
-               presenter.AutoClick(autoStatus);
+               try {
+                   presenter.AutoClick(autoStatus);
+               } catch (RemoteException e) {
+                   e.printStackTrace();
+               }
            }
        });
+
+        //Press Fan speed 1 Button
           b1.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View view) {
 
-                   presenter.speed1click(1);
+                  try {
+                      presenter.speed1click(1);
+                  } catch (RemoteException e) {
+                      e.printStackTrace();
+                  }
                   maxCheck(1);
 
 
               }
           });
 
+        //Press Fan speed 2 Button
           b2.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View view) {
 
 
-                  presenter.speed1click(2);
+                  try {
+                      presenter.speed1click(2);
+                  } catch (RemoteException e) {
+                      e.printStackTrace();
+                  }
                   maxCheck(2);
+
               }
           });
+
+        //Press Fan speed 3 Button
         b3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                presenter.speed1click(3);
+                try {
+                    presenter.speed1click(3);
+                } catch (RemoteException e) {
+                    e.printStackTrace();
+                }
                 maxCheck(3);
+
             }
         });
+
+        //Press Fan speed 4 Button
         b4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
 
-                presenter.speed1click(4);
+                try {
+                    presenter.speed1click(4);
+                } catch (RemoteException e) {
+                    e.printStackTrace();
+                }
                 maxCheck(4);
+
             }
         });
+        //Press Fan speed 5 Button
         b5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                presenter.speed1click(5);
+                try {
+                    presenter.speed1click(5);
+                } catch (RemoteException e) {
+                    e.printStackTrace();
+                }
                 maxCheck(5);
+
             }
         });
+
+        //Press Fan speed 6 Button
         b6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
 
-                presenter.speed1click(6);
+                try {
+                    presenter.speed1click(6);
+                } catch (RemoteException e) {
+                    e.printStackTrace();
+                }
                 maxCheck(6);
+
             }
         });
-
+        //Press Fan speed 7 Button
         b7.setOnClickListener(new View.OnClickListener() {
             @Override
 
             public void onClick(View view) {
 
-                presenter.speed1click(7);
+                try {
+                    presenter.speed1click(7);
+                } catch (RemoteException e) {
+                    e.printStackTrace();
+                }
                 maxCheck(7);
+
             }
         });
+
+        //Press AC Button
         tac.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -215,27 +296,39 @@ public class fragment1 extends Fragment implements  ComfortContractor.View{
             }
         });
 
+       //Press Front Defrost Button
         tgfd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 boolean fdefroststatus=tgfd.isChecked();
-                presenter.defrostclick(fdefroststatus);
+                try {
+                    presenter.defrostclick(fdefroststatus);
+                } catch (RemoteException e) {
+                    e.printStackTrace();
+                }
             }
         });
+
+        //Press Rear Defrost Button
 
         tgrd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 boolean rearstatus=tgrd.isChecked();
-                presenter.rearclick(rearstatus);
+                try {
+                    presenter.rearclick(rearstatus);
+                } catch (RemoteException e) {
+                    e.printStackTrace();
+                }
             }
         });
-
+       //Seekbar progress
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
                 int i=10;
                 i=progress;
+
                 textView.setText(""+i);
                 textView.setVisibility(View.VISIBLE);
             }
@@ -257,49 +350,11 @@ public class fragment1 extends Fragment implements  ComfortContractor.View{
 
     }
 
-//    private void bindToAIDLService() {
-//        Intent aidlserviceIntent=new Intent("connect_to_aidl_service");
-//        getActivity()bindService(convertImplicitIntentToExplicitIntent(aidlserviceIntent,this),serviceConnectionObject,BIND_AUTO_CREATE);
-//
-//
-//    }
-//
-//    ServiceConnection serviceConnectionObject=new ServiceConnection() {
-//        @Override
-//        public void onServiceConnected(ComponentName name, IBinder iBinder) {
-//          comfortInterface=ServicePackage.ComfortInterface.Stub.asInterface(iBinder);
-//        }
-//
-//        @Override
-//        public void onServiceDisconnected(ComponentName name) {
-//
-//        }
-//    };
-//    private static Intent convertImplicitIntentToExplicitIntent(Intent implicitIntent, Context context) {
-//        PackageManager pm = context.getPackageManager();
-//        List<ResolveInfo> resolveInfoList = pm.queryIntentServices(implicitIntent, 0);
-//
-//        if (resolveInfoList == null || resolveInfoList.size() != 1) {
-//            return null;
-//        }
-//        ResolveInfo serviceInfo = resolveInfoList.get(0);
-//        ComponentName component = new ComponentName(serviceInfo.serviceInfo.packageName, serviceInfo.serviceInfo.name);
-//        Intent explicitIntent = new Intent(implicitIntent);
-//        explicitIntent.setComponent(component);
-//        return explicitIntent;
-//    }
 
-//
-//
 
-//
-//
-//
-//
-//
-//
-//
-//
+
+
+
 
     @Override
     public void TempUpValue() {
@@ -307,12 +362,7 @@ public class fragment1 extends Fragment implements  ComfortContractor.View{
         textView.setVisibility(View.VISIBLE);
     }
 
-//    @Override
-//    public void connect(boolean av) {
-//
-//         Toast.makeText(getActivity(),"value"+av,Toast.LENGTH_SHORT).show();
-//     }
-//
+
 
     @Override
     public void TempDownValue() {
@@ -342,6 +392,7 @@ public class fragment1 extends Fragment implements  ComfortContractor.View{
                     tgfd.setEnabled(true);
                     tgrd.setEnabled(true);
                     tgcirc.setEnabled(true);
+                    tgauto.setEnabled(true);
                     txtpower.setVisibility(View.INVISIBLE);
 
     }
@@ -368,6 +419,7 @@ public class fragment1 extends Fragment implements  ComfortContractor.View{
                    tgfd.setEnabled(false);
                   tgrd.setEnabled(false);
                   tgcirc.setEnabled(false);
+                  tgauto.setEnabled(false);
 
                    txtpower.setText("Climate is Off");
                   txtpower.setVisibility(View.VISIBLE);
@@ -379,14 +431,15 @@ public class fragment1 extends Fragment implements  ComfortContractor.View{
     public void maxAccolor() {
         tmax.setBackgroundColor(getResources().getColor(R.color.purple_500));
               tac.setBackgroundColor(getResources().getColor(R.color.purple_500));
-                defrostcolor();
+                //defrostcolor();
     }
 
 
     @Override
     public void MaxChange() {
-        int c = seekBar.getProgress();
+
                     seekBar.setProgress(10);
+                    int c = seekBar.getProgress();
                     txtpower.setText("" + c);
 
 
@@ -505,8 +558,9 @@ public class fragment1 extends Fragment implements  ComfortContractor.View{
     public void defroston() {
                     af4.setChecked(true);
                     selectfanMax();
-                    int c = seekBar.getProgress();
+
                     seekBar.setProgress(40);
+                    int c = seekBar.getProgress();
                     textView.setText("" + c);
     }
 
@@ -527,6 +581,19 @@ public class fragment1 extends Fragment implements  ComfortContractor.View{
         tac.setBackgroundColor(getResources().getColor(R.color.purple_500));
                   tac.setSelected(false);
     }
+
+
+
+    @Override
+    public void maxOff(int temp, int fan) {
+        seekBar.setProgress(temp);
+     SpeedSet(fan);
+        Toast.makeText(getActivity(),"fan"+temp+fan,Toast.LENGTH_LONG);
+    }
+
+
+
+
 
 
 
