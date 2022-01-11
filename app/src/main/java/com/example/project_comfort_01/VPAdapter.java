@@ -11,8 +11,8 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import java.util.ArrayList;
 
 public class VPAdapter extends FragmentPagerAdapter {
-    private final ArrayList<Fragment> fragmentArrayList= new ArrayList<>();
-    private final ArrayList<String> fragmentTitle =new ArrayList<>();
+    private final ArrayList<Fragment> fragmentArrayList = new ArrayList<>();
+    private final ArrayList<String> fragmentTitle = new ArrayList<>();
 
     public VPAdapter(@NonNull FragmentManager fm, int behavior) {
         super(fm, behavior);
@@ -28,7 +28,8 @@ public class VPAdapter extends FragmentPagerAdapter {
     public int getCount() {
         return fragmentArrayList.size();
     }
-    public  void addFragment(Fragment fragment,String title){
+
+    public void addFragment(Fragment fragment, String title) {
         fragmentArrayList.add(fragment);
         fragmentTitle.add(title);
     }

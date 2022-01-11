@@ -14,7 +14,6 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
@@ -25,14 +24,12 @@ import java.util.List;
 
 import ServicePackage.ComfortInterface;
 
-public class MainFragment extends Fragment  {
+public class MainFragment extends Fragment {
     private TabLayout tabLayout;
     private ViewPager viewPager;
-    ComfortContractor.Presenter presenter;
     static ComfortInterface comfortInterface;
     Boolean connected = false;
-    ComfortContractor.Model model;
-    ComfortContractor.View view;
+
 
     View v;
 
@@ -83,123 +80,129 @@ public class MainFragment extends Fragment  {
 
         }
     };
-
-  public Boolean acvalue(boolean value) {
-      boolean abc=value;
-      Log.i("MAINFRAGMENT"," "+abc);
-      boolean BC=false;
-      try {
-
-
-      BC= MainFragment.getAidl().AcPressed(abc);
-
-          Log.i("Service"," "+BC);
-      } catch (RemoteException e) {
-          e.printStackTrace();
-      }
-
-
-////return comfortInterface.AcPressed(value);
-      return  BC;
-  }
- public Boolean maxvalue(boolean value){
-      boolean MAX=false;
-      try{
-          MAX=MainFragment.getAidl().AcPressed(value);
-      } catch (RemoteException e) {
-          e.printStackTrace();
-      }
-     return  MAX;
-  }
-  public List<String> getMaxList(){
-      List<String> maxliststring= new ArrayList<>();
-      try {
-          maxliststring=MainFragment.getAidl().getmaxList();
-      } catch (RemoteException e) {
-          e.printStackTrace();
-      }
-      return maxliststring;
-  }
-
-
-
-  public Boolean powervalue(boolean pvalue){
-      boolean POWER=false;
-      try {
-          POWER= MainFragment.getAidl().PowerPressed(pvalue);
-          Log.i("POWER MAIN"," "+POWER);
-
-      } catch (RemoteException e) {
-          e.printStackTrace();
-      }
-      return POWER;
-
-  }
-  public void tempValue(int value){
-      try {
-          MainFragment.getAidl().TempValue(value);
-
-      }catch (RemoteException e){
-          e.printStackTrace();
-      }
-  }
-  public void  SpeedValue(int value){
-      try {
-          MainFragment.getAidl().SpeedValue(value);
-      } catch (RemoteException e) {
-          e.printStackTrace();
-      }
-  }
-  public boolean AutoValue(boolean value){
-      boolean auto= false;
-      try {
-          auto = MainFragment.getAidl().AutoValue(value);
-      } catch (RemoteException e) {
-          e.printStackTrace();
-      }
-      return auto;
-  }
-    public List<String> getAutoList(){
-        List<String> autoliststring= new ArrayList<>();
+//  Ac button state send and recieve from service app
+    public Boolean acvalue(boolean value) {
+        boolean abc = value;
+        boolean BC = false;
         try {
-            autoliststring=MainFragment.getAidl().getautoList();
+            BC = MainFragment.getAidl().AcPressed(abc);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        return BC;
+    }
+//  Maxvalue button state send and recieve from service app
+    public Boolean maxvalue(boolean value) {
+        boolean MAX = false;
+        try {
+            MAX = MainFragment.getAidl().AcPressed(value);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        return MAX;
+    }
+//  Receive temperature and fan speed value from service while MAX AC on
+
+    public List<String> getMaxList() {
+        List<String> maxliststring = new ArrayList<>();
+        try {
+            maxliststring = MainFragment.getAidl().getmaxList();
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        return maxliststring;
+    }
+
+//  Power value button state send and recieve from service app
+    public Boolean powervalue(boolean pvalue) {
+        boolean POWER = false;
+        try {
+            POWER = MainFragment.getAidl().PowerPressed(pvalue);
+            Log.i("POWER MAIN", " " + POWER);
+
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        return POWER;
+
+    }
+//  Temperature value  send and recieve from service app
+
+    public void tempValue(int value) {
+        try {
+            MainFragment.getAidl().TempValue(value);
+
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+//  fan speed value  send and recieve from service app
+
+    public void SpeedValue(int value) {
+        try {
+            MainFragment.getAidl().SpeedValue(value);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+//  Auto  Button state  send and recieve from service app
+
+    public boolean AutoValue(boolean value) {
+        boolean auto = false;
+        try {
+            auto = MainFragment.getAidl().AutoValue(value);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        return auto;
+    }
+//  Receive temperature and fan speed value from service while Auto on
+
+    public List<String> getAutoList() {
+        List<String> autoliststring = new ArrayList<>();
+        try {
+            autoliststring = MainFragment.getAidl().getautoList();
         } catch (RemoteException e) {
             e.printStackTrace();
         }
         return autoliststring;
     }
-  public  boolean Defrost(boolean value){
-      boolean defrost=false;
-      try {
-           defrost=MainFragment.getAidl().DefrostValue(value);
-      } catch (RemoteException e) {
-          e.printStackTrace();
-      }
-      return  defrost;
-  }
-    public List<String> getDefrostList(){
-        List<String> defrostliststring= new ArrayList<>();
+//  Defrost  Button state  send and recieve from service app
+
+    public boolean Defrost(boolean value) {
+        boolean defrost = false;
         try {
-            defrostliststring=MainFragment.getAidl().getdefrost();
+            defrost = MainFragment.getAidl().DefrostValue(value);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        return defrost;
+    }
+//  Receive temperature and fan speed value from service while Defrost button on
+    public List<String> getDefrostList() {
+        List<String> defrostliststring = new ArrayList<>();
+        try {
+            defrostliststring = MainFragment.getAidl().getdefrost();
         } catch (RemoteException e) {
             e.printStackTrace();
         }
         return defrostliststring;
     }
-    public  boolean RearFrost(boolean value){
-        boolean rearfrost=false;
+//  RearFrost  Button state  send and recieve from service app
+    public boolean RearFrost(boolean value) {
+        boolean rearfrost = false;
         try {
-            rearfrost=MainFragment.getAidl().RearValue(value);
+            rearfrost = MainFragment.getAidl().RearValue(value);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
-        return  rearfrost;
+        return rearfrost;
     }
-  public static ComfortInterface getAidl(){
-      return comfortInterface;
-  }
+//Return Object Aidl
 
-
+    public static ComfortInterface getAidl() {
+        return comfortInterface;
+    }
 
 
 }

@@ -13,7 +13,6 @@ import ServicePackage.ComfortInterface;
 public class MainActivity extends AppCompatActivity {
     public ComfortInterface comfortInterface;
 
-   // public String[] titles= new String[]{"Front","Seat"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,11 +23,5 @@ public class MainActivity extends AppCompatActivity {
                     .setReorderingAllowed(true)
                     .commit();
         }
-//        getSupportActionBar().hide();
-//         viewPager2=findViewById(R.id.viewpager);
-//         tabLayout=findViewById(R.id.tabLayout);
-//         vpAdapter= new VPAdapter(this);
-//         viewPager2.setAdapter(vpAdapter);
-//         new TabLayoutMediator(tabLayout,viewPager2,((tab, position) -> tab.setText(titles[position]))).attach();
     }
 }

@@ -1,58 +1,28 @@
 package com.example.project_comfort_01;
 
-import android.annotation.SuppressLint;
-import android.app.FragmentManager;
-import android.os.IBinder;
 import android.os.RemoteException;
-import android.util.Log;
-import android.widget.Toast;
-
-import ServicePackage.ComfortInterface;
-import android.app.FragmentManager;
 
 import java.util.List;
 
-public class ComfortModel implements ComfortContractor.Model{
+public class ComfortModel implements ComfortContractor.Model {
     MainFragment mainFragment;
     ComfortContractor.View view;
-
-
-
-
-
+    ComfortContractor.Presenter presenter;
     public ComfortModel(ComfortContractor.Presenter presenter) {
         this.presenter = presenter;
-         mainFragment =new MainFragment();
-
-
-
+        mainFragment = new MainFragment();
     }
-
-    ComfortContractor.Presenter presenter;
-
-
-
-
-
-
-
-
 
     @Override
     public Boolean acvalue(boolean ac) throws RemoteException {
-        Log.i("MODEL"," "+ac);
-
-         boolean Acvalue=mainFragment.acvalue(ac);
-
-        Log.i("Return MODEL"," "+Acvalue);
-
-     return Acvalue;
+        boolean Acvalue = mainFragment.acvalue(ac);
+        return Acvalue;
     }
 
     @Override
     public Boolean maxAcValue(boolean value) throws RemoteException {
 
-       boolean Maxvalue=mainFragment.maxvalue(value);
+        boolean Maxvalue = mainFragment.maxvalue(value);
 
 
         return Maxvalue;
@@ -61,36 +31,36 @@ public class ComfortModel implements ComfortContractor.Model{
 
     @Override
     public Boolean powerValue(boolean value) throws RemoteException {
-        boolean powervalue= mainFragment.powervalue(value);
+        boolean powervalue = mainFragment.powervalue(value);
         return powervalue;
     }
 
     @Override
     public void TempValue(int value) throws RemoteException {
-      mainFragment.tempValue(value);
+        mainFragment.tempValue(value);
 
     }
 
     @Override
     public void SpeedValue(int value) throws RemoteException {
-     mainFragment.SpeedValue(value);
+        mainFragment.SpeedValue(value);
     }
 
     @Override
     public Boolean AutoValue(boolean value) throws RemoteException {
-       boolean auto= mainFragment.AutoValue(value);
+        boolean auto = mainFragment.AutoValue(value);
         return auto;
     }
 
     @Override
     public Boolean DefrostValue(boolean value) throws RemoteException {
-        boolean defrost=mainFragment.Defrost(value);
+        boolean defrost = mainFragment.Defrost(value);
         return defrost;
     }
 
     @Override
     public Boolean RearfrostValue(boolean value) throws RemoteException {
-        boolean rearfrost=mainFragment.RearFrost(value);
+        boolean rearfrost = mainFragment.RearFrost(value);
         return rearfrost;
     }
 
